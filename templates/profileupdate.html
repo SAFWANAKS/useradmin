@@ -1,0 +1,53 @@
+{% load static %}
+{% block content %}
+{% include 'header.html' %}
+<br><br><br><br><br>
+<div class="container" align="center">
+  <h1>Update profile</h1><br>
+    <div class="col-lg-8">
+        <form id="contact" action="upt/{{result.id}}" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+          <div class="row">
+            <div class="col-lg-8">
+              <fieldset>
+                <input type="text" name="name" id="name" placeholder="Name" value="{{result.name}} " autocomplete="on" required>
+              </fieldset>
+            </div>
+          
+           
+            <div class="col-lg-8">
+              <fieldset>
+                <input type="number" name="phone" id="email" pattern="[^ @]*@[^ @]*" placeholder="Your Phone" value="{{result.phone}}" required="">
+              </fieldset>
+            </div>
+            <div class="col-lg-8">
+              <fieldset>
+                <input type="email" name="email" id="website" placeholder="Your Email" value="{{result.email}}" required="">
+              </fieldset>
+            </div>
+            <div class="col-lg-8">
+                <fieldset>
+                  <input type="password" name="password" id="website" placeholder="Your password" value="{{result.password}}" required>
+                </fieldset>
+              </div>
+              <div class="col-lg-8">
+                <fieldset>
+                    <img src="../media/{{result.image}}" alt="">
+                  <input type="file" name="image" id="name" placeholder="Name" value="{{result.image}}" required>
+                </fieldset>
+              </div>
+            <div class="col-lg-8">
+              <fieldset>
+                <button type="submit" id="form-submit" class="main-button">Update</button>
+              </fieldset>
+            </div>
+          </div>
+        </form>
+      </div>
+      <br><br><br><br><br>
+</div>
+
+
+  {% include 'footer.html' %}
+
+  {% endblock %}
